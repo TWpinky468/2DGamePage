@@ -1,0 +1,332 @@
+:root{
+  --bg: #0b0f17;
+  --panel: #111827;
+  --panel2: #0f172a;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --line: rgba(255,255,255,.12);
+  --accent: #60a5fa;
+}
+
+*{ box-sizing: border-box; }
+html,body{
+  margin:0;
+  padding:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans TC", sans-serif;
+  color: #e5e7eb;
+  background: #0f0f10; /* 純灰黑 */
+}
+
+
+.container{
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11,15,23,.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 700;
+}
+.brand__logo{
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+.nav__links{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.nav__links a{
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+}
+.nav__links a:hover{
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+}
+
+.main{ min-height: 100vh; }
+
+.hero{
+  position: relative;
+  border-bottom: 1px solid var(--line);
+}
+.hero__bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 300px at 20% 20%, rgba(96,165,250,.22), transparent 55%),
+    radial-gradient(900px 350px at 70% 40%, rgba(56,189,248,.12), transparent 55%);
+  pointer-events:none;
+}
+.hero__content{
+  position: relative;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 26px;
+  padding: 56px 0;
+  align-items: center;
+}
+.hero__title{
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: .2px;
+  margin: 0 0 10px 0;
+}
+.hero__subtitle{
+  margin: 0 0 18px 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.hero__meta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 22px 0;
+}
+.pill{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.hero__cta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.hero__note{
+  color: var(--muted);
+  font-size: 14px;
+}
+.dot{ margin: 0 8px; opacity: .7; }
+
+.hero__shot{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 0;
+  background: #000;
+}
+
+.section{
+  padding: 54px 0;
+}
+.section--alt{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), transparent 60%);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section__title{
+  margin: 0 0 12px 0;
+  font-size: 26px;
+}
+.section__text{
+  margin: 0 0 22px 0;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 78ch;
+}
+
+.grid{
+  display:grid;
+  gap: 14px;
+}
+.grid--2{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.grid--3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+.card{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  border-radius: 16px;
+  padding: 16px 16px;
+}
+.card__title{
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+.card__text{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.feature{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  border-radius: 16px;
+  padding: 16px;
+}
+.feature__title{ margin: 0 0 6px 0; font-size: 16px; }
+.feature__text{ margin: 0; color: var(--muted); line-height: 1.75; }
+
+.media{
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+.media__frame{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display:block;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.shot{
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+.shot img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.shot figcaption{
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.list{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.download{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(96,165,250,.45);
+  background: rgba(96,165,250,.18);
+  color: var(--text);
+}
+.btn:hover{
+  background: rgba(96,165,250,.24);
+}
+.btn--ghost{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+.btn--ghost:hover{
+  background: rgba(255,255,255,.07);
+}
+.btn--small{
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.footer{
+  border-top: 1px solid var(--line);
+  padding: 18px 0;
+  color: var(--muted);
+}
+.footer__inner{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer__links a{
+  color: var(--muted);
+}
+.footer__links a:hover{
+  color: var(--text);
+}
+
+@media (max-width: 900px){
+  .hero__content{ grid-template-columns: 1fr; padding: 40px 0; }
+  .grid--3{ grid-template-columns: 1fr; }
+  .grid--2{ grid-template-columns: 1fr; }
+  .gallery{ grid-template-columns: 1fr; }
+}
+
+#controls{
+  padding-top: 10px;   /* 原本是 54px，縮小 */
+}
+
+.hero__bg{
+  display: none;
+}
+
+/* 全站背景：朋友照片 + 霧化 */
+/* 全站背景：朋友照片 + 霧化（會跟著滾動） */
+body{
+  position: relative;       /* ✅ 讓 ::before 用 body 當定位基準 */
+  background: #0f0f10;      /* 後備底色 */
+  overflow-x: hidden;       /* 避免模糊放大造成橫向捲軸 */
+}
+
+/* 背景照片層：不是 fixed，所以會跟著滾輪移動 */
+body::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -30vh;               /* ✅ 調位置：數字越小(更負) 背景越往上 */
+  height: calc(100% + 60vh);/* ✅ 讓背景比頁面更高，滾動時不會露底 */
+  background: url("img/friend.jpg") center 25% / cover no-repeat; /* ✅ 25% 可微調臉的位置 */
+  filter: blur(18px) saturate(0.9) brightness(0.6);
+  transform: scale(1.12);   /* 避免 blur 露邊 */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 黑霧遮罩：用 absolute 跟著頁面高度走 */
+body::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 讓所有頁面內容在最上層 */
+body > *{
+  position: relative;
+  z-index: 2;
+}
